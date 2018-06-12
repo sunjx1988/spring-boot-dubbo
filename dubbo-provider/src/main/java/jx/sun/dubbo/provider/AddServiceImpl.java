@@ -1,8 +1,9 @@
-package jx.sun.dubbo.provider.impl;
+package jx.sun.dubbo.provider;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import jx.sun.dubbo.rmi.AddService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 /**
  * @Auther: sunjx
@@ -10,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Description:
  */
 @Slf4j
+@Component
 @Service(interfaceClass = AddService.class)
 public class AddServiceImpl implements AddService {
 

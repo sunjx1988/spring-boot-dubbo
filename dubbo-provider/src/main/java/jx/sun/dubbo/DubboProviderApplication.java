@@ -6,6 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @Auther: sunjx
  * @Date: 2018/06/12 10:34
@@ -16,8 +18,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DubboProviderApplication implements CommandLineRunner{
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(DubboProviderApplication.class, args);
+        TimeUnit.MINUTES.sleep(1);
+        log.info("服务提供者关闭...");
     }
 
     @Override
