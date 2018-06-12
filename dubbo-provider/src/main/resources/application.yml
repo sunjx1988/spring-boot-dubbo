@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: dubbo-provider
+  aop:
+    proxy-target-class: true
+  dubbo:
+    appname: dubbo-provider
+    protocol: dubbo
+    port: 20882
+    version: 1.0.0
+    registry: zookeeper://192.168.0.184:2181
