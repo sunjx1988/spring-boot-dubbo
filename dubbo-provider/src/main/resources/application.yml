@@ -8,4 +8,4 @@ spring:
     protocol: dubbo
     port: 20882
     version: 1.0.0
-    registry: zookeeper://192.168.0.184:2181
+    registry: zookeeper://127.0.0.1:2181

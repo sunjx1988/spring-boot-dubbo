@@ -20,7 +20,7 @@ public class DubboProviderApplication implements CommandLineRunner{
 
     public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(DubboProviderApplication.class, args);
-        TimeUnit.MINUTES.sleep(1);
+        TimeUnit.MINUTES.sleep(10);
         log.info("服务提供者关闭...");
     }
 

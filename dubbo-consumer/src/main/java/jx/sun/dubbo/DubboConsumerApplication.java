@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * @Auther: sunjx
@@ -16,6 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Slf4j
 @SpringBootApplication
 @EnableDubboConfiguration
+@EnableAsync
 public class DubboConsumerApplication implements CommandLineRunner{
 
     @Autowired
@@ -27,7 +29,9 @@ public class DubboConsumerApplication implements CommandLineRunner{
     }
 
     @Override
-    public void run(String... strings) throws Exception {
-        normalConsumer.consume(1, 1);
+    public void run(String... strings){
+        log.info("服务调用开始...");
+        normalConsumer.consum();
+        log.info("服务调用结束...");
     }
 }
