@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @Auther: sunjx
  * @Date: 2018/06/12 10:38
@@ -17,20 +19,21 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @Slf4j
 @SpringBootApplication
 @EnableDubboConfiguration
-@EnableAsync
 public class DubboConsumerApplication implements CommandLineRunner{
 
     @Autowired
     private NormalConsumer normalConsumer;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(DubboConsumerApplication.class, args);
         log.info("服务调用者关闭...");
+        TimeUnit.SECONDS.sleep(10);
     }
 
     @Override
     public void run(String... strings){
         log.info("服务调用开始...");
+        normalConsumer.asyncConsum();
         normalConsumer.consum();
         log.info("服务调用结束...");
     }

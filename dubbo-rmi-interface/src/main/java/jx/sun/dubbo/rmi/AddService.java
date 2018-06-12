@@ -7,5 +7,5 @@ package jx.sun.dubbo.rmi;
  */
 public interface AddService {
 
-    Integer add(Integer a, Integer b);
+    void method();
 }
